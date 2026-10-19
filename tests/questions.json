@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "corpus": "《大连财经学院学生管理规定》82条",
+    "purpose": "验证四环节编排：可答题需给出处引用，无依据题需触发拒答",
+    "groups": {
+      "answerable": "资料库中存在明确依据，期望 ANSWER 且引用条款正确",
+      "unanswerable": "资料库中不存在答案，期望 ABSTAIN（拒答）"
+    }
+  },
+  "cases": [
+    {"id": "A1", "group": "answerable", "question": "新生因故不能按期报到，请假期限一般不得超过多久？", "expected_article": 8, "expected_answer_contains": ["两周"], "note": "第8条 入学报到请假"},
+    {"id": "A2", "group": "answerable", "question": "学生请假3天以上、7天以内由谁批准？", "expected_article": 22, "expected_answer_contains": ["学生处"], "note": "第22条 请假审批权限"},
+    {"id": "A3", "group": "answerable", "question": "学生对学校的处理或者处分决定有异议，可以在多少日内提出书面申诉？", "expected_article": 77, "expected_answer_contains": ["10日"], "note": "第77条 申诉期限"},
+    {"id": "A4", "group": "answerable", "question": "学生申诉处理委员会应在接到书面申诉之日起多少日内作出复查结论？", "expected_article": 78, "expected_answer_contains": ["15日"], "note": "第78条 复查期限"},
+    {"id": "A5", "group": "answerable", "question": "学校基本学制为几年？学生最长可以在几年内修完学业？", "expected_article": 28, "expected_answer_contains": ["四年", "六年"], "note": "第28条 学制"},
+    {"id": "A6", "group": "answerable", "question": "学生休学最多可以几次，一次多长时间？", "expected_article": 29, "expected_answer_contains": ["两次", "1学年"], "note": "第29条 休学次数"},
+    {"id": "A7", "group": "answerable", "question": "未经批准连续多少周未参加学校规定的教育教学活动，学校可予退学处理？", "expected_article": 34, "expected_answer_contains": ["两周"], "note": "第34条 退学情形"},
+    {"id": "A8", "group": "answerable", "question": "未达到毕业学分要求，但达到毕业所需学分的百分之多少者按结业处理？", "expected_article": 45, "expected_answer_contains": ["95"], "note": "第45条 结业条件"},
+    {"id": "A9", "group": "answerable", "question": "纪律处分的种类分为哪几种？", "expected_article": 68, "expected_answer_contains": ["警告", "开除学籍"], "note": "第68条 处分种类"},
+    {"id": "A10", "group": "answerable", "question": "新生入学后，学校在国家招生规定要求的多长时间内对其进行资格复查？", "expected_article": 11, "expected_answer_contains": ["3个月"], "note": "第11条 资格复查"},
+
+    {"id": "R1", "group": "unanswerable", "question": "学校图书馆借书逾期的罚款标准是多少？", "expected_article": null, "expected_answer_contains": [], "note": "资料库无图书馆管理规定"},
+    {"id": "R2", "group": "unanswerable", "question": "学生宿舍晚上几点熄灯，门禁时间是几点？", "expected_article": null, "expected_answer_contains": [], "note": "资料库无宿舍作息规定"},
+    {"id": "R3", "group": "unanswerable", "question": "学校本科学费每年多少钱？", "expected_article": null, "expected_answer_contains": [], "note": "资料库仅提“按规定缴纳学费”，无金额标准（边界陷阱）"},
+    {"id": "R4", "group": "unanswerable", "question": "一等奖学金的奖金金额是多少？", "expected_article": null, "expected_answer_contains": [], "note": "资料库仅提奖励形式，无金额（边界陷阱）"}
+  ]
+}

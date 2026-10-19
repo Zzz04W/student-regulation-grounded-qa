@@ -1,0 +1,131 @@
+# =============================================================
+# 带出处引用的知识问答编排（Orchestration Definition）
+# 平台无关描述：可直接映射到 Dify / Coze / 扣子 等工作流画布
+# 四个环节：检索 → 判断 → 生成 → 校验
+# =============================================================
+version: "1.0"
+name: student-regulation-grounded-qa
+description: >
+  基于《大连财经学院学生管理规定》的可溯源知识问答编排。
+  每个答案必须携带条款级出处引用；无依据问题时走拒答分支。
+
+knowledge_base:
+  source: corpus/学生管理规定.md
+  index: corpus/chunks.jsonl
+  chunk_unit: 条          # 以"条"为最小可引用单元，保证引用可追溯
+  chunk_count: 82
+
+# 全局参数
+params:
+  top_k: 5                # 检索返回证据条数
+  min_score: 18.0         # 判断节点：BM25 绝对分阈值
+  min_coverage: 0.45      # 判断节点：查询术语在首条证据中的覆盖率阈值
+  verify_min_groundedness: 0.60   # 校验节点：答案对证据的落地率阈值
+  verify_require_numeric_check: true
+
+# ---------------- 节点定义 ----------------
+nodes:
+  - id: retrieve
+    type: retrieval
+    name: "① 检索"
+    desc: "从条款级资料库中召回候选证据"
+    impl: src/retriever.py::retrieve
+    inputs: [question]
+    outputs: [evidence]
+    config:
+      top_k: ${params.top_k}
+      algorithm: BM25(char uni/bi-gram)
+    next: judge
+
+  - id: judge
+    type: branch
+    name: "② 判断"
+    desc: "充分性判定：证据得分与术语覆盖率双重门槛"
+    inputs: [question, evidence]
+    outputs: [decision, reason, metrics]
+    rules:
+      - when: "top1.score_raw >= 18.0 AND coverage >= 0.45"
+        then: generate
+        decision: ANSWER
+      - when: "coverage < 0.45 AND top1.score_raw >= 8.0"
+        then: abstain
+        decision: ABSTAIN
+        reason: PARTIAL_EVIDENCE   # 有相关条款，但不足以支撑本问题
+      - when: "otherwise"
+        then: abstain
+        decision: ABSTAIN
+        reason: NO_EVIDENCE        # 资料库中不存在相关内容
+
+  - id: generate
+    type: llm
+    name: "③ 生成"
+    desc: "仅依据证据生成答案，句尾强制附加条款引用标记 [n]"
+    inputs: [question, evidence]
+    outputs: [answer, citations]
+    prompt: |
+      你是制度问答助手。只能使用下列证据回答，不得引入外部知识。
+      每句结论后用 [n] 标注所依据的证据编号。
+      证据不足时输出"资料未载明"。
+      问题：{question}
+      证据：{evidence}
+    config:
+      citation_style: "[n] → 第X条（章 > 节）"
+      generator: grounded-extractive   # 无 LLM Key 时的确定性兜底生成器
+      llm_fallback_env: OPENAI_API_KEY # 有 Key 时切换为真实大模型生成
+    next: verify
+
+  - id: verify
+    type: branch
+    name: "④ 校验"
+    desc: "引用完整性 + 事实落地率双重校验，不通过则降级拒答"
+    inputs: [answer, citations, evidence]
+    outputs: [verified, verify_report]
+    checks:
+      - id: citation_validity
+        desc: "答案中所有 [n] 必须落在证据编号范围内"
+      - id: groundedness
+        desc: "答案术语在被引证据中的覆盖率 >= 0.60"
+      - id: numeric_consistency
+        desc: "答案中的数字必须能在被引证据原文中找到"
+    rules:
+      - when: "all_checks_passed"
+        then: output
+        verified: true
+      - when: "any_check_failed"
+        then: abstain
+        verified: false
+        reason: VERIFY_FAILED       # 生成结果无法回溯到证据，拒绝输出
+
+  - id: abstain
+    type: output
+    name: "拒答输出"
+    desc: "统一拒答模板，明确说明原因并给出检索到的最接近条款"
+    template: |
+      未在《大连财经学院学生管理规定》中检索到可支撑本问题的依据，暂不作答。
+      原因：{reason}（首条证据 {top1.id}，术语覆盖率 {coverage}，得分 {top1.score_raw}）
+      最接近条款：{top1.id}「{top1.summary}」
+      建议：向学校办公室或学生处核实该事项。
+
+  - id: output
+    type: output
+    name: "正常输出"
+    desc: "答案 + 条款级出处列表 + 校验报告"
+
+# ---------------- 边（执行顺序） ----------------
+edges:
+  - from: retrieve
+    to: judge
+  - from: judge
+    to: generate
+    condition: decision == ANSWER
+  - from: judge
+    to: abstain
+    condition: decision == ABSTAIN
+  - from: generate
+    to: verify
+  - from: verify
+    to: output
+    condition: verified == true
+  - from: verify
+    to: abstain
+    condition: verified == false

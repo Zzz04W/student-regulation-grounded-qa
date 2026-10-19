@@ -1,0 +1,5 @@
+.vendor/
+__pycache__/
+*.pyc
+.DS_Store
+corpus/_raw.txt

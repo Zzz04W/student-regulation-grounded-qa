@@ -1,0 +1,1098 @@
+{
+  "stat": {
+    "total": 14,
+    "rag_answerable_pass": 10,
+    "rag_answerable_total": 10,
+    "rag_abstain_pass": 4,
+    "rag_abstain_total": 4,
+    "rag_overall": 1.0,
+    "skill_answerable_pass": 10,
+    "skill_overall": 0.7142857142857143,
+    "citation_traceable": 1.0,
+    "verify_pass_rate": 1.0
+  },
+  "records": [
+    {
+      "id": "A1",
+      "group": "answerable",
+      "question": "新生因故不能按期报到，请假期限一般不得超过多久？",
+      "note": "第8条 入学报到请假",
+      "expected_article": 8,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[8](期望8) 关键词命中=True",
+        "answer": "按照国家招生规定录取的新生，须持学校高考录取通知书和学校规定的其他证明文件，按规定的日期到校办理入学报到手续。因故不能按期报到的，须向学生处提出请假申请，期限一般不得超过两周。未请假或者请假逾期一个月者（因不可抗力因素除外），视为放弃入学资格。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 90.2777,
+          "coverage": 0.8333,
+          "top1_id": "第8条"
+        },
+        "sources": [
+          {
+            "id": "第8条",
+            "path": "第三章 学籍管理规定 > 第一节 入学与注册"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['一']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第8条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 90.2777,
+            "coverage": 0.8333,
+            "top1_id": "第8条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 126
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第8条(期望第8条)",
+        "answer": "按照国家招生规定录取的新生，须持学校高考录取通知书和学校规定的其他证明文件，按规定的日期到校办理入学报到手续。因故不能按期报到的，须向学生处提出请假申请，期限一般不得超过两周。未请假或者请假逾期一个月者（因不可抗力因素除外），视为放弃入学资格。 [1]",
+        "top1": "第8条",
+        "coverage": 0.8333,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A2",
+      "group": "answerable",
+      "question": "学生请假3天以上、7天以内由谁批准？",
+      "note": "第22条 请假审批权限",
+      "expected_article": 22,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[22](期望22) 关键词命中=True",
+        "answer": "学生请假时间在1天以内的由所在年级专业辅导员批准；请假时间在1天以上、3天以内的由所在学院主管领导批准；请假时间在3天以上、7天以内的，由学生处批准；请假时间在7天以上的，由学校主管领导批准。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 81.5173,
+          "coverage": 0.7812,
+          "top1_id": "第22条"
+        },
+        "sources": [
+          {
+            "id": "第22条",
+            "path": "第三章 学籍管理规定 > 第二节 考核与成绩记载"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['1', '3', '7']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第22条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 81.5173,
+            "coverage": 0.7812,
+            "top1_id": "第22条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 100
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第22条(期望第22条)",
+        "answer": "学生请假时间在1天以内的由所在年级专业辅导员批准；请假时间在1天以上、3天以内的由所在学院主管领导批准；请假时间在3天以上、7天以内的，由学生处批准；请假时间在7天以上的，由学校主管领导批准。 [1]",
+        "top1": "第22条",
+        "coverage": 0.7812,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A3",
+      "group": "answerable",
+      "question": "学生对学校的处理或者处分决定有异议，可以在多少日内提出书面申诉？",
+      "note": "第77条 申诉期限",
+      "expected_article": 77,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[77](期望77) 关键词命中=True",
+        "answer": "学生对学校的处理或者处分决定有异议的，可以在接到学校处理或者处分决定书之日起10日内，向学校学生申诉处理委员会提出书面申诉。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 95.3665,
+          "coverage": 0.8788,
+          "top1_id": "第77条"
+        },
+        "sources": [
+          {
+            "id": "第77条",
+            "path": "第六章 学生申诉"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['10']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第77条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 95.3665,
+            "coverage": 0.8788,
+            "top1_id": "第77条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 66
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第77条(期望第77条)",
+        "answer": "学生对学校的处理或者处分决定有异议的，可以在接到学校处理或者处分决定书之日起10日内，向学校学生申诉处理委员会提出书面申诉。 [1]",
+        "top1": "第77条",
+        "coverage": 0.8788,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A4",
+      "group": "answerable",
+      "question": "学生申诉处理委员会应在接到书面申诉之日起多少日内作出复查结论？",
+      "note": "第78条 复查期限",
+      "expected_article": 78,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[78](期望78) 关键词命中=True",
+        "answer": "学生申诉处, 理委员会对学生提出的申诉进行复查，并在接到书面申诉之日起15日内作出复查结论并告知申诉人。情况复杂不能在规定限期内作出结论的，经学校主管学生工作校领导批准，可延长15日。学生申诉处理委员会认为必要的，可以建议学校暂缓执行有关决定。\n学生申诉处理委员会经复查，认为作出处理或者处分的事实、依据、程序等存在不当，可以作出建议撤销或变更的复查意见，要求相关职能部门予以研究，重新提交校长办公会或者专门会议作出决定。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 119.0996,
+          "coverage": 0.8375,
+          "top1_id": "第78条"
+        },
+        "sources": [
+          {
+            "id": "第78条",
+            "path": "第六章 学生申诉"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['15']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第78条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 119.0996,
+            "coverage": 0.8375,
+            "top1_id": "第78条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 215
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第78条(期望第78条)",
+        "answer": "学生申诉处, 理委员会对学生提出的申诉进行复查，并在接到书面申诉之日起15日内作出复查结论并告知申诉人。情况复杂不能在规定限期内作出结论的，经学校主管学生工作校领导批准，可延长15日。学生申诉处理委员会认为必要的，可以建议学校暂缓执行有关决定。\n学生申诉处理委员会经复查，认为作出处理或者处分的事实、依据、程序等存在不当，可以作出建议撤销或变更的复查意见，要求相关职能部门予以研究，重新提交校长办公会或者专门会议作出决定。 [1]",
+        "top1": "第78条",
+        "coverage": 0.8375,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A5",
+      "group": "answerable",
+      "question": "学校基本学制为几年？学生最长可以在几年内修完学业？",
+      "note": "第28条 学制",
+      "expected_article": 28,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[28](期望28) 关键词命中=True",
+        "answer": "学校实行学分制，基本学制为四年。学生可以分阶段完成学业，在三到六年内修完学业。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 71.5459,
+          "coverage": 0.7347,
+          "top1_id": "第28条"
+        },
+        "sources": [
+          {
+            "id": "第28条",
+            "path": "第三章 学籍管理规定 > 第四节 休学与复学"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['三', '六', '四']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第28条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 71.5459,
+            "coverage": 0.7347,
+            "top1_id": "第28条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 43
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第28条(期望第28条)",
+        "answer": "学校实行学分制，基本学制为四年。学生可以分阶段完成学业，在三到六年内修完学业。 [1]",
+        "top1": "第28条",
+        "coverage": 0.7347,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A6",
+      "group": "answerable",
+      "question": "学生休学最多可以几次，一次多长时间？",
+      "note": "第29条 休学次数",
+      "expected_article": 29,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[29](期望29) 关键词命中=True",
+        "answer": "学生不能保证在校学习时间大于三分之二的，有下列情况之一，应当休学：\n（一）因伤病经校医院或指定医院诊断，需停课治疗、休养时间占一学期总学时三分之一以上的；\n（二）根据考勤一学期请假累计超过该学期总学时三分之一以上的；\n（三）因某种特殊原因，本人申请或学校认为应当休学的；\n（四）因创业申请休学的，本人需提供相关证明材料。\n学生休学最多两次，一次1学年；学生休学期间保留学籍，不履行在校生义务，不享受在校生权利。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 44.7995,
+          "coverage": 0.6053,
+          "top1_id": "第29条"
+        },
+        "sources": [
+          {
+            "id": "第29条",
+            "path": "第三章 学籍管理规定 > 第四节 休学与复学"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['1', '一', '三', '二', '四']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第29条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 44.7995,
+            "coverage": 0.6053,
+            "top1_id": "第29条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 209
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第29条(期望第29条)",
+        "answer": "学生不能保证在校学习时间大于三分之二的，有下列情况之一，应当休学：\n（一）因伤病经校医院或指定医院诊断，需停课治疗、休养时间占一学期总学时三分之一以上的；\n（二）根据考勤一学期请假累计超过该学期总学时三分之一以上的；\n（三）因某种特殊原因，本人申请或学校认为应当休学的；\n（四）因创业申请休学的，本人需提供相关证明材料。\n学生休学最多两次，一次1学年；学生休学期间保留学籍，不履行在校生义务，不享受在校生权利。 [1]",
+        "top1": "第29条",
+        "coverage": 0.6053,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A7",
+      "group": "answerable",
+      "question": "未经批准连续多少周未参加学校规定的教育教学活动，学校可予退学处理？",
+      "note": "第34条 退学情形",
+      "expected_article": 34,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[34](期望34) 关键词命中=True",
+        "answer": "学生有下列情形之一，学校可予退学处理：\n（一）学业成绩未达到学校要求或者在学校规定的学习年限内未完成学业的；\n（二）休学或保留学籍期满，在学校规定期限内未提出复学申请或者申请复学经复查不合格的；\n（三）根据学校指定二级甲等以上医院诊断，患有疾病或者意外伤残不能继续在校学习的；\n（四）未经批准连续两周未参加学校规定的教育教学活动的；\n（五）超过学校规定期限未注册而又无正当事由的；\n（六）本人申请退学，经说服教育无效者；\n（七）学校规定的不能完成学业、应予退学的其他情形。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 81.6449,
+          "coverage": 0.8974,
+          "top1_id": "第34条"
+        },
+        "sources": [
+          {
+            "id": "第34条",
+            "path": "第三章 学籍管理规定 > 第五节 退学"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['一', '七', '三', '二', '五', '六', '四']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第34条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 81.6449,
+            "coverage": 0.8974,
+            "top1_id": "第34条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 240
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第34条(期望第34条)",
+        "answer": "学生有下列情形之一，学校可予退学处理：\n（一）学业成绩未达到学校要求或者在学校规定的学习年限内未完成学业的；\n（二）休学或保留学籍期满，在学校规定期限内未提出复学申请或者申请复学经复查不合格的；\n（三）根据学校指定二级甲等以上医院诊断，患有疾病或者意外伤残不能继续在校学习的；\n（四）未经批准连续两周未参加学校规定的教育教学活动的；\n（五）超过学校规定期限未注册而又无正当事由的；\n（六）本人申请退学，经说服教育无效者；\n（七）学校规定的不能完成学业、应予退学的其他情形。 [1]",
+        "top1": "第34条",
+        "coverage": 0.8974,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A8",
+      "group": "answerable",
+      "question": "未达到毕业学分要求，但达到毕业所需学分的百分之多少者按结业处理？",
+      "note": "第45条 结业条件",
+      "expected_article": 45,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[45](期望45) 关键词命中=True",
+        "answer": "具有正式学籍的学生在规定的学习年限内，未达到人才培养方案规定的毕业学分要求，但达到毕业所需学分的95％者，按结业处理，发给结业证书。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 129.467,
+          "coverage": 0.7612,
+          "top1_id": "第45条"
+        },
+        "sources": [
+          {
+            "id": "第45条",
+            "path": "第三章 学籍管理规定 > 第六节 毕业、结业与肄业"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['95']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第45条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 129.467,
+            "coverage": 0.7612,
+            "top1_id": "第45条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 70
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第45条(期望第45条)",
+        "answer": "具有正式学籍的学生在规定的学习年限内，未达到人才培养方案规定的毕业学分要求，但达到毕业所需学分的95％者，按结业处理，发给结业证书。 [1]",
+        "top1": "第45条",
+        "coverage": 0.7612,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A9",
+      "group": "answerable",
+      "question": "纪律处分的种类分为哪几种？",
+      "note": "第68条 处分种类",
+      "expected_article": 68,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[68](期望68) 关键词命中=True",
+        "answer": "纪律处分的种类分为：\n（一）警告；\n（二）严重警告；\n（三）记过；\n（四）留校察看；\n（五）开除学籍。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 48.5991,
+          "coverage": 0.8696,
+          "top1_id": "第68条"
+        },
+        "sources": [
+          {
+            "id": "第68条",
+            "path": "第五章 奖励与处分"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['一', '三', '二', '五', '四']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第68条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 48.5991,
+            "coverage": 0.8696,
+            "top1_id": "第68条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 55
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第68条(期望第68条)",
+        "answer": "纪律处分的种类分为：\n（一）警告；\n（二）严重警告；\n（三）记过；\n（四）留校察看；\n（五）开除学籍。 [1]",
+        "top1": "第68条",
+        "coverage": 0.8696,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "A10",
+      "group": "answerable",
+      "question": "新生入学后，学校在国家招生规定要求的多长时间内对其进行资格复查？",
+      "note": "第11条 资格复查",
+      "expected_article": 11,
+      "citation_ok": true,
+      "rag": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "引用[11](期望11) 关键词命中=True",
+        "answer": "新生入学后，学校按照国家招生规定在3个月内对其进行资格复查。复查内容主要包括以下方面：\n（一）录取手续及程序等是否合乎国家招生规定；\n（二）所获得的录取资格是否真实、合乎相关规定；\n（三）本人及身份证明与录取通知、考生档案等是否一致；\n（四）身心健康状况是否符合报考专业或者专业类别体检要求，能否保证在校正常学习、生活；\n（五）艺术、体育等特殊类型录取学生的专业水平是否符合录取要求。 [1]",
+        "reason_code": null,
+        "metrics": {
+          "score_raw": 73.8737,
+          "coverage": 0.76,
+          "top1_id": "第11条"
+        },
+        "sources": [
+          {
+            "id": "第11条",
+            "path": "第三章 学籍管理规定 > 第一节 入学与注册"
+          }
+        ],
+        "verify": {
+          "verified": true,
+          "checks": [
+            {
+              "id": "citation_validity",
+              "pass": true,
+              "detail": "引用编号 [1] / 证据范围 1..5"
+            },
+            {
+              "id": "groundedness",
+              "pass": true,
+              "detail": "落地率 1.0 >= 0.6"
+            },
+            {
+              "id": "numeric_consistency",
+              "pass": true,
+              "detail": "答案数字 ['3', '一', '三', '二', '五', '四']；未落地 无"
+            }
+          ],
+          "groundedness": 1.0
+        },
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第11条"
+          },
+          {
+            "node": "judge",
+            "decision": "ANSWER",
+            "reason": null,
+            "score_raw": 73.8737,
+            "coverage": 0.76,
+            "top1_id": "第11条"
+          },
+          {
+            "node": "generate",
+            "citations": [
+              1
+            ],
+            "answer_len": 196
+          },
+          {
+            "node": "verify",
+            "verified": true,
+            "failed": []
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": true,
+        "detail": "定位到第11条(期望第11条)",
+        "answer": "新生入学后，学校按照国家招生规定在3个月内对其进行资格复查。复查内容主要包括以下方面：\n（一）录取手续及程序等是否合乎国家招生规定；\n（二）所获得的录取资格是否真实、合乎相关规定；\n（三）本人及身份证明与录取通知、考生档案等是否一致；\n（四）身心健康状况是否符合报考专业或者专业类别体检要求，能否保证在校正常学习、生活；\n（五）艺术、体育等特殊类型录取学生的专业水平是否符合录取要求。 [1]",
+        "top1": "第11条",
+        "coverage": 0.76,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "R1",
+      "group": "unanswerable",
+      "question": "学校图书馆借书逾期的罚款标准是多少？",
+      "note": "资料库无图书馆管理规定",
+      "expected_article": null,
+      "rag": {
+        "type": "ABSTAIN",
+        "ok": true,
+        "detail": "PARTIAL_EVIDENCE",
+        "answer": "未在《大连财经学院学生管理规定》中检索到可支撑本问题的依据，暂不作答。",
+        "reason_code": "PARTIAL_EVIDENCE",
+        "metrics": {
+          "score_raw": 10.7936,
+          "coverage": 0.2143,
+          "top1_id": "第47条"
+        },
+        "sources": [],
+        "verify": null,
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第47条"
+          },
+          {
+            "node": "judge",
+            "decision": "ABSTAIN",
+            "reason": "PARTIAL_EVIDENCE",
+            "score_raw": 10.7936,
+            "coverage": 0.2143,
+            "top1_id": "第47条"
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": false,
+        "detail": "输出了答案（来源第47条，覆盖率0.2143）→ 无依据作答",
+        "answer": "具有正式学籍的学生没有修完人才培养方案规定的课程，在学校学习一学年以上、取得毕业所需学分的25％以上但未达到结业条件者，作肄业处理，学校发给其肄业证书。未经批准擅自离校的学生，不发肄业证书。处于休学期的学生不能颁发肄业证书。 [1] 另据第8条：按照国家招生规定录取的新生，须持学校高考录取通知书和学校规定的其他证明文件，按规定的日期到校办理入学报到手续。 [2]",
+        "top1": "第47条",
+        "coverage": 0.2143,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "R2",
+      "group": "unanswerable",
+      "question": "学生宿舍晚上几点熄灯，门禁时间是几点？",
+      "note": "资料库无宿舍作息规定",
+      "expected_article": null,
+      "rag": {
+        "type": "ABSTAIN",
+        "ok": true,
+        "detail": "PARTIAL_EVIDENCE",
+        "answer": "未在《大连财经学院学生管理规定》中检索到可支撑本问题的依据，暂不作答。",
+        "reason_code": "PARTIAL_EVIDENCE",
+        "metrics": {
+          "score_raw": 14.7116,
+          "coverage": 0.225,
+          "top1_id": "第22条"
+        },
+        "sources": [],
+        "verify": null,
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第22条"
+          },
+          {
+            "node": "judge",
+            "decision": "ABSTAIN",
+            "reason": "PARTIAL_EVIDENCE",
+            "score_raw": 14.7116,
+            "coverage": 0.225,
+            "top1_id": "第22条"
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": false,
+        "detail": "输出了答案（来源第22条，覆盖率0.225）→ 无依据作答",
+        "answer": "学生请假时间在1天以内的由所在年级专业辅导员批准；请假时间在1天以上、3天以内的由所在学院主管领导批准；请假时间在3天以上、7天以内的，由学生处批准；请假时间在7天以上的，由学校主管领导批准。 [1]",
+        "top1": "第22条",
+        "coverage": 0.225,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "R3",
+      "group": "unanswerable",
+      "question": "学校本科学费每年多少钱？",
+      "note": "资料库仅提“按规定缴纳学费”，无金额标准（边界陷阱）",
+      "expected_article": null,
+      "rag": {
+        "type": "ABSTAIN",
+        "ok": true,
+        "detail": "PARTIAL_EVIDENCE",
+        "answer": "未在《大连财经学院学生管理规定》中检索到可支撑本问题的依据，暂不作答。",
+        "reason_code": "PARTIAL_EVIDENCE",
+        "metrics": {
+          "score_raw": 13.079,
+          "coverage": 0.2,
+          "top1_id": "第13条"
+        },
+        "sources": [],
+        "verify": null,
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第13条"
+          },
+          {
+            "node": "judge",
+            "decision": "ABSTAIN",
+            "reason": "PARTIAL_EVIDENCE",
+            "score_raw": 13.079,
+            "coverage": 0.2,
+            "top1_id": "第13条"
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": false,
+        "detail": "输出了答案（来源第13条，覆盖率0.2）→ 无依据作答",
+        "answer": "学生学年电子注册是对在校学生新学年学习资格的认定。每学年开学时，学生原则上应缴齐本学年应缴费用后予以电子注册。 [1]",
+        "top1": "第13条",
+        "coverage": 0.2,
+        "context_chars": 8572
+      }
+    },
+    {
+      "id": "R4",
+      "group": "unanswerable",
+      "question": "一等奖学金的奖金金额是多少？",
+      "note": "资料库仅提奖励形式，无金额（边界陷阱）",
+      "expected_article": null,
+      "rag": {
+        "type": "ABSTAIN",
+        "ok": true,
+        "detail": "PARTIAL_EVIDENCE",
+        "answer": "未在《大连财经学院学生管理规定》中检索到可支撑本问题的依据，暂不作答。",
+        "reason_code": "PARTIAL_EVIDENCE",
+        "metrics": {
+          "score_raw": 29.3258,
+          "coverage": 0.4,
+          "top1_id": "第7条"
+        },
+        "sources": [],
+        "verify": null,
+        "trace": [
+          {
+            "node": "retrieve",
+            "top_k": 5,
+            "hits": 5,
+            "top1": "第7条"
+          },
+          {
+            "node": "judge",
+            "decision": "ABSTAIN",
+            "reason": "PARTIAL_EVIDENCE",
+            "score_raw": 29.3258,
+            "coverage": 0.4,
+            "top1_id": "第7条"
+          }
+        ]
+      },
+      "skill": {
+        "type": "ANSWER",
+        "ok": false,
+        "detail": "输出了答案（来源第7条，覆盖率0.4）→ 无依据作答",
+        "answer": "学生在校期间依法履行下列义务：\n（一）遵守宪法和法律、法规；\n（二）遵守学校章程和规章制度；\n（三）恪守学术道德，完成规定学业；\n（四）按规定缴纳学费及有关费用，履行获得奖学金及助学金的相应义务；\n（五）遵守学生行为规范，尊敬师长，养成良好的思想品德和行为习惯；\n（六）法律、法规及学校章程规定的其他义务。 [1] 另据第64条：奖励学生坚持精神鼓励和物质鼓励相结合，以精神鼓励为主的原则。 [2]",
+        "top1": "第7条",
+        "coverage": 0.4,
+        "context_chars": 8572
+      }
+    }
+  ],
+  "hallucination_demo": {
+    "type": "ABSTAIN",
+    "answer": "未在《大连财经学院学生管理规定》中检索到可支撑本问题的依据，暂不作答。",
+    "reason_code": "VERIFY_FAILED",
+    "reason": "生成结果未能通过出处校验，已拦截",
+    "evidence_hint": "第22条（第三章 学籍管理规定 / 第二节 考核与成绩记载）「第22条 学生请假时间在1天以内的由所在年级专业辅导员批准；请假时间在1天以上、…」",
+    "metrics": {
+      "score_raw": 81.5173,
+      "coverage": 0.7353,
+      "top1_id": "第22条"
+    },
+    "verify": {
+      "verified": false,
+      "checks": [
+        {
+          "id": "citation_validity",
+          "pass": true,
+          "detail": "引用编号 [1] / 证据范围 1..5"
+        },
+        {
+          "id": "groundedness",
+          "pass": false,
+          "detail": "落地率 0.0959 >= 0.6"
+        },
+        {
+          "id": "numeric_consistency",
+          "pass": false,
+          "detail": "答案数字 ['0.5', '23', '30']；未落地 ['30', '0.5', '23']"
+        }
+      ],
+      "groundedness": 0.0959
+    },
+    "advice": "该事项不在本规定覆盖范围内，建议向学生处或学校办公室核实。",
+    "trace": [
+      {
+        "node": "retrieve",
+        "top_k": 5,
+        "hits": 5,
+        "top1": "第22条"
+      },
+      {
+        "node": "judge",
+        "decision": "ANSWER",
+        "reason": null,
+        "score_raw": 81.5173,
+        "coverage": 0.7353,
+        "top1_id": "第22条"
+      },
+      {
+        "node": "verify",
+        "verified": false,
+        "failed": [
+          "groundedness",
+          "numeric_consistency"
+        ]
+      }
+    ]
+  }
+}

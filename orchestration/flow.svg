@@ -1,0 +1,73 @@
+<svg viewBox="0 0 680 568" width="100%" xmlns="http://www.w3.org/2000/svg" role="img">
+<title>带出处引用的知识问答四环节流程</title>
+<desc>检索、判断、生成、校验四个环节串联，判断与校验两处设有拒答分支。</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<g>
+<rect x="70" y="36" width="250" height="44" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="195" y="58" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#2C2C2A">用户提问</text>
+</g>
+
+<path d="M195 80L195 120" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="70" y="120" width="250" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="195" y="142" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#0C447C">① 检索 Retrieve</text>
+<text x="195" y="160" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#185FA5">BM25 召回 top-5 条款</text>
+</g>
+
+<path d="M195 176L195 216" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="70" y="216" width="250" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="195" y="238" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#0C447C">② 判断 Judge</text>
+<text x="195" y="256" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#185FA5">得分≥18 且 覆盖率≥0.45</text>
+</g>
+
+<path d="M320 244L440 244" fill="none" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="380" y="230" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#A32D2D">证据不足</text>
+
+<g>
+<rect x="440" y="216" width="200" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="540" y="238" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#791F1F">拒答：资料未载明</text>
+<text x="540" y="256" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#A32D2D">附最接近条款与建议</text>
+</g>
+
+<path d="M195 272L195 312" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="206" y="292" text-anchor="start" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#5F5E5A">充分</text>
+
+<g>
+<rect x="70" y="312" width="250" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="195" y="334" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#0C447C">③ 生成 Generate</text>
+<text x="195" y="352" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#185FA5">只用证据，句尾标注 [n]</text>
+</g>
+
+<path d="M195 368L195 408" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<g>
+<rect x="70" y="408" width="250" height="56" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+<text x="195" y="430" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#0C447C">④ 校验 Verify</text>
+<text x="195" y="448" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#185FA5">引用 · 落地率 · 数字一致</text>
+</g>
+
+<path d="M320 436L440 436" fill="none" stroke="#A32D2D" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="380" y="422" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#A32D2D">未通过</text>
+
+<g>
+<rect x="440" y="408" width="200" height="56" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+<text x="540" y="430" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#791F1F">降级拒答</text>
+<text x="540" y="448" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#A32D2D">生成无法回溯到证据</text>
+</g>
+
+<path d="M195 464L195 504" fill="none" stroke="#5F5E5A" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="206" y="484" text-anchor="start" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="12" fill="#5F5E5A">通过</text>
+
+<g>
+<rect x="70" y="504" width="250" height="44" rx="8" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5"/>
+<text x="195" y="526" text-anchor="middle" dominant-baseline="central" font-family="system-ui,sans-serif" font-size="14" font-weight="500" fill="#27500A">输出：答案 + 条款出处</text>
+</g>
+</svg>
